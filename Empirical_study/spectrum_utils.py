@@ -7,21 +7,7 @@ from torch.fft import fft2
 import matplotlib.pyplot as plt
 import cv2
 
-#计算相位谱
-'''
-def phase_spectra(image):
-    #gray_images = np_to_gray(images).numpy()
-    image = image.squeeze().numpy()
-    # 应用傅立叶变换以获得频谱
-    f = np.fft.fft2(image)
-    #fft_images = np.fft.fftn(image, axes=(-2, -1))
-    # 计算相位谱
-    phase_spectrum = np.angle(f)
-    # 将 phase_spectrum 张量的形状更改为 (1, 32, 32)
-    i_ph = np.fft.ifft2(phase_spectrum)
-    i_ph = np.abs(i_ph)
-    return i_ph
-'''
+#Compute the Fourier Phase transform saliency
 def phase_spectra(image):
 
     fft_result = torch.fft.fftn(image, dim=(-2, -1))
@@ -32,25 +18,23 @@ def phase_spectra(image):
     return saliency_map.squeeze()
 
 
-#计算高通滤波
+#Compute the high-pass filter saliency
 def high_pass_filter(image):
     #images = np_to_gray(images)
     image = image.to(torch.float32)  # Convert image to float32
     #img = img.numpy()
-    # 定义 Sobel 滤波器
+    # define a Sobel filter
     sobel_x = torch.tensor([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]], dtype=torch.float32).unsqueeze(0).unsqueeze(0)
     sobel_y = torch.tensor([[-1, -2, -1], [0, 0, 0], [1, 2, 1]], dtype=torch.float32).unsqueeze(0).unsqueeze(0)
-
-    # 应用高通滤波器
     filtered_x = F.conv2d(image, sobel_x, padding=1)
     filtered_y = F.conv2d(image, sobel_y, padding=1)
 
-    # 计算梯度幅度
+    # compute the amplitude of gradient
     saliency = torch.sqrt(filtered_x ** 2 + filtered_y ** 2)
     return saliency.squeeze()
 
 
-#计算残差谱
+#Compute the spectral residual saliency
 def spectral_residual_saliency(image):
     #gray_images = np_to_gray(images)
     image = image.to(torch.float32)  # Convert image to float32
@@ -75,7 +59,7 @@ def spectral_residual_saliency(image):
     saliency = torch.stack(saliency_maps)
     return saliency.squeeze()
 
-#计算四元Fourier的显著图
+#Compute the quaternion Fourier saliency
 def quaternion_fourier_saliency(images):
     images = images.to(torch.float32)  # Convert image to float32
     #img = img.numpy()
@@ -183,24 +167,6 @@ def show_img_spectrum(image):
     orig, ph, hp, rd, qft = spec_type(image, 'orig'), spec_type(image, 'phase'), spec_type(image, 'highpass'), spec_type(image, 'residual'), spec_type(image, 'quaternion_fourier')
     ph = histogram_equalization(ph,256)
     rd = histogram_equalization(rd,512)
-    #rd = linear_scaling(rd)
-    # Remove the batch dimension before displaying
-    #orig, ph, hp, rd, qft = orig[0], ph[0], hp[0], rd[0], qft[0]
     return orig, ph, hp, rd, qft
-    #print('The Spectrums of image')
-    '''
-    plt.subplot(151), plt.imshow(orig, 'gray'), plt.title('orig')
-    plt.axis('off')
-    plt.subplot(152), plt.imshow(ph, 'gray'), plt.title('PH')
-    plt.axis('off')
-    plt.subplot(153), plt.imshow(hp, 'gray_r'), plt.title('HP')
-    plt.axis('off')
-    plt.subplot(154), plt.imshow(rd, 'gray'), plt.title('RD')
-    plt.axis('off')
-    plt.subplot(155), plt.imshow(qft, 'gray_r'), plt.title('QFT')
-    plt.axis('off')
-    plt.savefig('sliency-phase.png',dpi=500)
-    plt.show()
-'''
 
         
