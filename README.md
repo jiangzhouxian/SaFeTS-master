@@ -1,5 +1,5 @@
 # SaFeTS-master
-This repository is the code involved in the paper \textit{Semantic Feature-Based Test Selection for Deep Neural Networks: A Frequency Domain Perspective}
+This repository is the code involved in the paper /textit{Semantic Feature-Based Test Selection for Deep Neural Networks: A Frequency Domain Perspective}
 
 ## Prerequisite
 The code should be run using python 3.8.5.
