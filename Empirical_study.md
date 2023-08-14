@@ -1,10 +1,10 @@
-# Semantic feature Extraction on Perturbed Images
+# Semantic Feature Extraction on Perturbed Images
 
-To evaluate the effectiveness of frequency domain-based methods in semantic extraction, we investigate the semantic changes caused by adding different perturbations to the samples. Two types of perturbed data were evaluated, including adversarial samples and Out-of-distribution (OOD) samples. 
+To evaluate the effectiveness of saliency detection methods based on frequency domain in semantic extraction, we investigate the changes of semantic maps caused by adding different perturbations to the samples. Two types of perturbed data were evaluated, including adversarial samples and Out-of-distribution (OOD) samples. 
 
-To generate adversarial samples, we utilized the pre-trained VGG16 model on ImageNet as the under attack model, then we created adversarial samples using the advanced adversarial attack techniques PGD and CW. 
-
+To generate adversarial samples, we utilized the pre-trained VGG16 model on ImageNet and the advanced adversarial attack techniques PGD and CW. 
 To generate OOD samples, we used widely recognized corrupted benchmarking, which includes 19 types of corruption, involving changes in weather, blur, noise and digital. 
+The experiment results show that although adversarial attacka and OOD corruptions cause the original sample to lose some semantics, all four methods effectively extract the semantic information of the adversarial and OOD samples. Furthermore, FPT achieves the best results among the four saliency detection methods, and QFT performs the worst. FPT effectively detects the semantic features such as edges and texture of the image in all types of perturbed data.
 
 This file present some examples of semantic feature extraction.
 
@@ -36,7 +36,7 @@ Image with flat Colors.
 
 ## 2. Corruption (Evaluation on OOD samples) 
 
-### 2.1 noise
+### 2.1 Noise
 gaussian_noise
 ![](./figs/gaussian_noise.png)
 shot_noise
@@ -44,7 +44,7 @@ shot_noise
 impulse_noise
 ![](./figs/impulse_noise.png)
 
-### 2.2 blur
+### 2.2 Blur
 defocus_blur
 ![](./figs/defocus_blur.png)
 glass_blur
@@ -54,7 +54,7 @@ motion_blur
 zoom_blur
 ![](./figs/zoom_blur.png)
 
-### 2.3 weather
+### 2.3 Weather
 frost
 ![](./figs/frost.png)
 snow
@@ -64,7 +64,7 @@ fog
 brightness
 ![](./figs/brightness.png)
 
-### 2.4 digital
+### 2.4 Digital
 
 contrast
 ![](./figs/contrast.png)
@@ -75,7 +75,7 @@ pixelate
 jpeg_compression
 ![](./figs/jpeg_compression.png)
 
-### 2.5 extra
+### 2.5 Extra
 
 speckle_noise
 ![](./figs/speckle_noise.png)
