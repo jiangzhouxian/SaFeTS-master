@@ -15,7 +15,14 @@ pip install requirements.txt
 ## To run
 
 ```
-    cd dataset/
+    # turn to dataset files
+    cd Cifar10/
+    #generate adversarial examples
+    python adv_gen.py
+    #sample test cases from candidate set
+    ./run_sample.sh
+    #retrain model by selected dataset
+    ./run_retrain.sh
 ```
 
 ## Large file download
