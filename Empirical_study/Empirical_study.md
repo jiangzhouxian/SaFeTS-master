@@ -6,7 +6,11 @@ To generate adversarial samples, we utilized the pre-trained VGG16 model on Imag
 To generate OOD samples, we used widely recognized corrupted benchmarking, which includes 19 types of corruption, involving changes in weather, blur, noise and digital. 
 The experiment results show that although adversarial attacka and OOD corruptions cause the original sample to lose some semantics, all four methods effectively extract the semantic information of the adversarial and OOD samples. Furthermore, FPT achieves the best results among the four saliency detection methods, and QFT performs the worst. FPT effectively detects the semantic features such as edges and texture of the image in all types of perturbed data.
 
-This file present some examples of semantic feature extraction. In addition, you can run empirical_study.ipynb for generating more cases.
+This file present some examples of semantic feature extraction. In addition, you can run 
+```
+empirical_study.ipynb
+```
+for generating more cases.
 
 ## 1. Adversarial attack (Evaluation on adversarial samples) 
 
