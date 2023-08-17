@@ -7,7 +7,7 @@ The code should be run using python 3.8.5.
 pip install requirements.txt
 ```
 
-### File structure
+## File structure
 * Empirical_Study: The experiments of Section 3 in the paper.
 * Cifar10: The experiments on Cifar10 dataset.
 * SVHN: The experiments on SVHN dataset.
