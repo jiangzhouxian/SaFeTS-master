@@ -1,0 +1,2 @@
+CIFAR10/Models_cifar10/checkpoint/VGG16-CIFAR10.pth filter=lfs diff=lfs merge=lfs -text
+CIFAR10/Models_cifar10/Dataset/cifar-10-python.tar.gz filter=lfs diff=lfs merge=lfs -text
