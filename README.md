@@ -13,8 +13,10 @@ pip install requirements.txt
 * Cifar10: The experiments on Cifar10 dataset.
 
 ## To run
+
 ### Empirical study
-See ./Empirical_study/EEADME.md
+See ./Empirical_study/Empirical_study.md
+
 ### Cifar10
 ```
     # turn to dataset files
