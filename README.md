@@ -26,5 +26,7 @@ pip install requirements.txt
 ```
 
 ## Large file download
+Due to the repository's limitations on document size, we uploaded the dataset and model, as well as other large files, in a cloud drive at the following link：
 https://pan.baidu.com/s/1WjzqAxTpwU-96ZXYOBeIGA?pwd=hlay 
+
 password：hlay 
