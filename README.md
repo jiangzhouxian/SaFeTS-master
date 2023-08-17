@@ -13,7 +13,9 @@ pip install requirements.txt
 * Cifar10: The experiments on Cifar10 dataset.
 
 ## To run
-
+### Empirical study
+See ./Empirical_study/EEADME.md
+### Cifar10
 ```
     # turn to dataset files
     cd Cifar10/
@@ -24,7 +26,17 @@ pip install requirements.txt
     #retrain model by selected dataset
     ./run_retrain.sh
 ```
-
+### SVHN
+```
+    # turn to dataset files
+    cd SVHN/
+    #generate adversarial examples
+    python adv_gen.py
+    #sample test cases from candidate set
+    ./run_sample.sh
+    #retrain model by selected dataset
+    ./run_retrain.sh
+```
 ## Large file download
 * Due to the repository's limitations on document size, we uploaded the dataset and model, as well as other large files, in a cloud drive at the following link：
 ```
